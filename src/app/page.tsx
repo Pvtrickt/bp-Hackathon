@@ -18,7 +18,7 @@ export default async function Home() {
         <SideNavBar />
         <div className="flex flex-grow flex-col rounded-md bg-gray-100">
           <header
-            className="bg-bgColour p-10 text-white"
+            className="bg-brand-purple-light p-10 text-white"
             style={{ boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)" }}
           >
             <h1 className="text-xl"></h1>
