@@ -9,8 +9,9 @@ export default {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
       },
       colors: {
-        bgColour: '#706ce1',
-      },
+        'brand-purple-dark': '#2E2874',
+        'brand-purple-light': '#706CE1',
+      }
     },
   },
   plugins: [],

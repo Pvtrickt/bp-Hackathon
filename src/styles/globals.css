@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.login-background {
+    background-image: url('/login-purple.png'); /* Use a relative path from the root */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;  /* Ensure it takes the full width */
+    height: 100%; /* Ensure it takes the full height */
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 10px; /* Adjust based on your design */
+  pointer-events: none; /* Prevent mouse events on the icon */
+}
+
+.input-field {
+  padding-left: 30px; /* Add padding to prevent text overlap with the icon */
+  padding: 10px; /* Vertical padding */
+  width: 100%; /* Full width */
+  border: 1px solid #ccc; /* Border style */
+  border-radius: 5px; /* Rounded corners */
+}
