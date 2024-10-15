@@ -18,7 +18,7 @@ export default function Login() {
     };
 
   const handleClick = () => {
-    router.push("");
+    router.push("/");
   };
 
   return (

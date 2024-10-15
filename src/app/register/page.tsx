@@ -19,7 +19,7 @@ export default function Register() {
     };
 
   const handleClick = () => {
-    router.push("");
+    router.push("/");
   };
 
   return (

@@ -10,7 +10,7 @@ export default {
       },
       colors: {
         'brand-purple-dark': '#2E2874',
-        'brand-purple-light': '#706CE1'
+        'brand-purple-light': '#706CE1',
       }
     },
   },
