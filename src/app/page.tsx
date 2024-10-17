@@ -74,7 +74,7 @@ export default function Home() {
             <div>
               <button 
               onClick={toggleModal}
-              className="bg-yellow-500 text-white rounded-full px-6 py-2 hover:bg-yellow-600 mt-4 ml-9 mb-10">Generate Timetable</button>
+              className="bg-yellow-500 text-white rounded-full px-6 py-2 hover:bg-yellow-600 mt-4 ml-9 mb-10">Select Subjects</button>
             </div>
           </main>
         </div>

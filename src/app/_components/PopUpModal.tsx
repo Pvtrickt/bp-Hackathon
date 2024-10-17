@@ -17,10 +17,13 @@ const PopUpModal = ({ onClose }: PopUpModalProp) => {
       >
         <h1>Select Subjects:</h1>
         <div className="flex flex-col bg-gray-100 space-y-6 ">
-          <li className="flex flex-col bg-brand-purple-light text-white rounded-xl p-4">
+          <li className="flex flex-row bg-brand-purple-light text-white rounded-xl p-4">
+            <div>
             <h1 text-xl font-bold>COMP1511</h1>
             <h2 text-lg>Programming Fundamentals</h2>
-            <select className="bg-white text-black rounded-lg px-3 py-2">
+            </div>
+
+            <select className="bg-white text-black rounded-lg px-3 py-2 ">
               <option value="term1">Term 1</option>
               <option value="term2">Term 2</option>
               <option value="term3">Term 3</option>
