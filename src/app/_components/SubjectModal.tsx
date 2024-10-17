@@ -1,19 +1,35 @@
+"use client";
+import { useState } from "react";
 interface SubjectModalProps {
   courseCode: string;
   courseName: string;
 }
 
 const SubjectModal = ({ courseCode, courseName }: SubjectModalProps) => {
+  const [isModalSelected, setIsModalSelected] = useState(false);
+  const [color, setColor] = useState("bg-indigo-900");
+
+  const toggleModal = () => {
+    setIsModalSelected(!isModalSelected);
+  };
+
+  const changeColor = () => {
+    setColor(
+      color === "bg-indigo-900" ? "bg-brand-purple-light" : "bg-indigo-900",
+    );
+  };
   return (
     <div
-      className="flex items-center justify-between rounded-3xl bg-indigo-900 p-6 shadow-lg"
+      className={`flex items-center justify-between rounded-3xl p-6 shadow-lg ${color}`}
+      onClick={changeColor}
       style={{
         width: "300px",
         height: "160px",
         boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)",
+        backgroundColor: color,
       }}
     >
-      <div className="h-full w-full text-left">
+      <div className="flex w-full flex-col gap-y-1 text-left">
         <h1 className="text-4xl">{courseCode}</h1>
         <p className="text-md">{courseName}</p>
         <div className="flex flex-row gap-1">
