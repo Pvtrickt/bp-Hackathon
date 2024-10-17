@@ -1,6 +1,6 @@
 const SideNavBar = () => {
   return (
-    <aside className="bg-bgColour h-full w-1/6 p-6">
+    <aside className="bg-brand-purple-light h-screen w-1/6 p-6">
       <div className="mb-8 ml-3.5 text-3xl font-bold text-white">
         <span className="font-bold text-indigo-800">Task</span>
         <span className="text-white">Findr</span>
