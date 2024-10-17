@@ -6,12 +6,7 @@ interface SubjectModalProps {
 }
 
 const SubjectModal = ({ courseCode, courseName }: SubjectModalProps) => {
-  const [isModalSelected, setIsModalSelected] = useState(false);
   const [color, setColor] = useState("bg-indigo-900");
-
-  const toggleModal = () => {
-    setIsModalSelected(!isModalSelected);
-  };
 
   const changeColor = () => {
     setColor(
