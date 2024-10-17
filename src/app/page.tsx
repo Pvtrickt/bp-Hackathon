@@ -1,19 +1,19 @@
-import Link from "next/link";
-
-import { LatestPost } from "~/app/_components/post";
-import { getServerAuthSession } from "~/server/auth";
-import { api, HydrateClient } from "~/trpc/server";
-import SubjectModal from "./_components/SubjectModal";
+"use client";
+import { useState } from "react";
+import PopUpModal from "./_components/PopUpModal";
 import SideNavBar from "./_components/SideNavbar";
+import SubjectModal from "./_components/SubjectModal";
 
-export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-  const session = await getServerAuthSession();
+export default function Home() {
+  const [isPopUpModal, setIsPopUpModal] = useState(false);
 
-  void api.post.getLatest.prefetch();
+  const toggleModal = () => {
+    setIsPopUpModal(!isPopUpModal);
+  };
 
   return (
-    <HydrateClient>
+    <div>
+      {isPopUpModal && <PopUpModal onClose={() => setIsPopUpModal(false)} />}
       <div className="flex h-screen">
         <SideNavBar />
         <div className="flex flex-grow flex-col rounded-md bg-gray-100 font-roboto">
@@ -56,30 +56,18 @@ export default async function Home() {
                 courseCode="COMP1511"
                 courseName="Programming Fundamentals"
               />
-              <SubjectModal
-                courseCode="MATH1311"
-                courseName="Maths 1A"
-              />
-              <SubjectModal
-                courseCode="MATH1231"
-                courseName="Maths 1B"
-              />
-              <SubjectModal
-                courseCode="MATH1231"
-                courseName="pol"
-              />
-              <SubjectModal
-                courseCode="MATH1231"
-                courseName="pol"
-              />
-              <SubjectModal
-                courseCode="MATH1231"
-                courseName="pol"
-              />
+              <SubjectModal courseCode="MATH1311" courseName="Maths 1A" />
+              <SubjectModal courseCode="MATH1231" courseName="Maths 1B" />
+              <SubjectModal courseCode="MATH1231" courseName="pol" />
+              <SubjectModal courseCode="MATH1231" courseName="pol" />
+              <SubjectModal courseCode="MATH1231" courseName="pol" />
+            </div>
+            <div>
+              <button onClick={toggleModal}>Generate Timetable</button>
             </div>
           </main>
         </div>
       </div>
-    </HydrateClient>
+    </div>
   );
 }
