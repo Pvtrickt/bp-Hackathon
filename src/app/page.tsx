@@ -16,7 +16,7 @@ export default async function Home() {
     <HydrateClient>
       <div className="flex h-screen">
         <SideNavBar />
-        <div className="flex flex-grow flex-col rounded-md bg-gray-100">
+        <div className="flex flex-grow flex-col rounded-md bg-gray-100 font-roboto">
           <header
             className="bg-brand-purple-light p-10 text-white"
             style={{ boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)" }}
@@ -55,32 +55,26 @@ export default async function Home() {
               <SubjectModal
                 courseCode="COMP1511"
                 courseName="Programming Fundamentals"
-                src="post 1.png"
               />
               <SubjectModal
                 courseCode="MATH1311"
                 courseName="Maths 1A"
-                src="post 1.png"
               />
               <SubjectModal
                 courseCode="MATH1231"
                 courseName="Maths 1B"
-                src="post 1.png"
               />
               <SubjectModal
                 courseCode="MATH1231"
                 courseName="pol"
-                src="post 1.png"
               />
               <SubjectModal
                 courseCode="MATH1231"
                 courseName="pol"
-                src="post 1.png"
               />
               <SubjectModal
                 courseCode="MATH1231"
                 courseName="pol"
-                src="post 1.png"
               />
             </div>
           </main>
