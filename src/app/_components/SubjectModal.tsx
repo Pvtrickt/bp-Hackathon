@@ -23,9 +23,9 @@ const SubjectModal = ({ courseCode, courseName }: SubjectModalProps) => {
           <img src="stars.png" alt="stars" className="h-6 w-6" />
         </div>
         <div className="flex w-full flex-row justify-between">
-          <button className="rounded-lg bg-white text-black">term 1</button>
-          <button className="rounded-lg bg-white text-black">term 2</button>
-          <button className="rounded-lg bg-white text-black">term 3</button>
+          <button className="rounded-lg bg-white text-black px-4 py-1 my-2">term 1</button>
+          <button className="rounded-lg bg-white text-black px-4 py-1 my-2">term 2</button>
+          <button className="rounded-lg bg-white text-black px-4 py-1 my-2">term 3</button>
         </div>
       </div>
     </div>
