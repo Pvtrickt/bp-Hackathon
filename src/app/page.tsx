@@ -47,7 +47,6 @@ export default function Home() {
                     className="h-10 w-full rounded-3xl"
                   />
                 </form>
-                <input />
               </div>
               <div className="flex w-20 gap-x-1 pt-5">
                 <select id="filter" className="rounded-xl">
@@ -72,7 +71,7 @@ export default function Home() {
               <SubjectModal courseCode="MATH1231" courseName="pol" />
             </div>
             <div>
-              <button onClick={toggleModal}>Generate Timetable</button>
+              <button onClick={toggleModal}>Select Subjects</button>
             </div>
           </main>
         </div>

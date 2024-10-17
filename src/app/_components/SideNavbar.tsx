@@ -1,4 +1,11 @@
+import { useRouter } from "next/navigation";
+
 const SideNavBar = () => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("../customise");
+  };
+
   return (
     <aside className="bg-brand-purple-light h-screen w-1/6 p-6">
       <div className="mb-8 ml-3.5 text-3xl font-bold text-white">
@@ -8,28 +15,31 @@ const SideNavBar = () => {
       <nav className="space-y-6">
         <a
           href="#"
-          className="block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-indigo-600"
+          className="flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-indigo-600"
+          onClick={() => router.push("/")}
         >
           <img src="DashBoard.png" alt="Dashboard Icon" className="h-8 w-8" />
-          DashBoard
+          Subject
         </a>
         <a
           href="#"
-          className="block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-indigo-600"
+          className="flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-indigo-600"
+          onClick={handleClick}
         >
           <img src="explorer.png" alt="explorer Icon" className="h-8 w-8" />
-          Explore
+          Calendar
         </a>
         <a
           href="#"
-          className="block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-indigo-600"
+          className="flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-indigo-600"
+          onClick={handleClick}
         >
           <img src="TaskHub.png" alt="task hub Icon" className="h-8 w-8" />
-          Task Hub
+          Setting
         </a>
         <a
           href="#"
-          className="block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-indigo-600"
+          className="flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-indigo-600"
         >
           <img src="Profile.png" alt="profile Icon" className="h-8 w-8" />
           Profile

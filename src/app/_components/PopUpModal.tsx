@@ -1,10 +1,14 @@
-import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 interface PopUpModalProp {
   onClose: () => void;
 }
 
 const PopUpModal = ({ onClose }: PopUpModalProp) => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("../customise");
+  };
+
   return (
     <div
       className={`fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-black bg-opacity-40`}
@@ -28,7 +32,9 @@ const PopUpModal = ({ onClose }: PopUpModalProp) => {
             <h1>COMP1511</h1>
             <h2>Programming Fundamentals</h2>
           </li>
-          <button className="flex">Generate Timetable</button>
+          <button className="flex" onClick={handleClick}>
+            Generate Timetable
+          </button>
         </div>
       </div>
     </div>
