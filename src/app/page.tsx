@@ -3,6 +3,7 @@ import { useState } from "react";
 import PopUpModal from "./_components/PopUpModal";
 import SideNavBar from "./_components/SideNavbar";
 import SubjectModal from "./_components/SubjectModal";
+import PageLayout from "./_components/PageLayout";
 
 export default function Home() {
   const [isPopUpModal, setIsPopUpModal] = useState(false);
