@@ -16,7 +16,7 @@ export default function Home() {
       {isPopUpModal && <PopUpModal onClose={() => setIsPopUpModal(false)} />}
       <div className="flex h-screen">
         <SideNavBar />
-        <div className="flex flex-grow flex-col rounded-md bg-gray-100 font-roboto">
+        <div className="flex flex-grow flex-col rounded-md bg-gray-100 font-roboto ">
           <header
             className="bg-brand-purple-light p-10 text-white"
             style={{ boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)" }}
@@ -63,7 +63,9 @@ export default function Home() {
               <SubjectModal courseCode="MATH1231" courseName="pol" />
             </div>
             <div>
-              <button onClick={toggleModal}>Generate Timetable</button>
+              <button 
+              onClick={toggleModal}
+              className="bg-yellow-500 text-white rounded-full px-6 py-2 hover:bg-yellow-600 mt-4 ml-9 mb-10">Generate Timetable</button>
             </div>
           </main>
         </div>
