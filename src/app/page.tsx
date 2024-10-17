@@ -16,7 +16,7 @@ export default function Home() {
       {isPopUpModal && <PopUpModal onClose={() => setIsPopUpModal(false)} />}
       <div className="flex h-screen">
         <SideNavBar />
-        <div className="flex flex-grow flex-col rounded-md bg-gray-100">
+        <div className="font-roboto flex flex-grow flex-col rounded-md bg-gray-100">
           <header
             className="bg-brand-purple-light p-10 text-white"
             style={{ boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)" }}
@@ -71,7 +71,12 @@ export default function Home() {
               <SubjectModal courseCode="MATH1231" courseName="pol" />
             </div>
             <div>
-              <button onClick={toggleModal}>Select Subjects</button>
+              <button
+                onClick={toggleModal}
+                className="mb-10 ml-9 mt-4 rounded-full bg-yellow-500 px-6 py-2 text-white hover:bg-yellow-600"
+              >
+                Select Subjects
+              </button>
             </div>
           </main>
         </div>
