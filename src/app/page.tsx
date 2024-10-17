@@ -29,7 +29,7 @@ export default function Home() {
               <span className="font-bold text-indigo-800">Welcome!</span>
             </div>
 
-            <div className="flex flex-col pb-10">
+            <div className="flex flex-col px-10">
               <h2 className="mb-3 text-xl font-bold text-indigo-800">
                 Choose your subjects:
               </h2>
@@ -47,10 +47,19 @@ export default function Home() {
                     className="h-10 w-full rounded-3xl"
                   />
                 </form>
+                <input />
+              </div>
+              <div className="flex w-20 gap-x-1 pt-5">
+                <select id="filter" className="rounded-xl">
+                  <option value="filter">Sort By</option>
+                </select>
+                <select id="filter" className="rounded-xl">
+                  <option value="filter">filter</option>
+                </select>
               </div>
             </div>
 
-            <div className="grid grid-cols-3 place-items-center gap-y-11 text-center text-white">
+            <div className="grid grid-cols-3 place-items-center justify-between gap-y-11 px-5 pt-10 text-center text-white">
               {/* gonna all of this to somewhere and integrate API */}
               <SubjectModal
                 courseCode="COMP1511"
