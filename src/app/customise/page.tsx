@@ -7,17 +7,14 @@ import SideNavBar from "../_components/SideNavbar";
 export default function Home() {
   const [open, setOpen] = useState(true);
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-full bg-gray-100">
       <SideNavBar />
       <div className="flex flex-grow flex-col rounded-md">
-        <header
-          className="bg-brand-purple-light p-10 text-white"
-          style={{ boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)" }}
-        >
+        <header className="bg-brand-purple-light p-10 text-white">
           <h1 className="text-xl"></h1>
         </header>
 
-        <main className="flex h-screen flex-col gap-8 overflow-scroll p-16">
+        <main className="flex h-screen flex-col gap-8 overflow-auto p-16">
           <h1 className="text-brand-purple-dark text-3xl font-semibold">
             Let&apos;s customise your timetable
           </h1>
@@ -51,6 +48,9 @@ export default function Home() {
             assignment3={"Assignment (10%) (Individual)"}
             assignment4={"Final Examination (50%) (Individual)"}
           />
+          <button className="mb-10 ml-9 mt-4 rounded-full bg-yellow-500 px-6 py-2 text-white hover:bg-yellow-600">
+            Select Subjects
+          </button>
           {open && <DailyPopUp onClose={() => setOpen(!open)} />}{" "}
         </main>
       </div>

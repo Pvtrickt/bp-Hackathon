@@ -27,7 +27,7 @@ export default function Register() {
       <div className="center flex h-full items-center justify-start">
         <div className="flex flex-col gap-3 p-16">
           <h1 className="text-brand-purple-light flex flex-row text-7xl font-semibold">
-            Schedula
+            Schedula.
           </h1>
           <p className="pl-1 font-light">
             Meet Schedula &#45; your ultimate study companion! Effortlessly
