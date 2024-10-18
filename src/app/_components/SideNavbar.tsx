@@ -14,14 +14,20 @@ const SideNavBar = () => {
   };
 
   return (
-    <aside className="bg-brand-purple-light w-1/6 p-6">
-      <div className="mb-8 ml-3.5 text-3xl font-semibold text-white">
-        <span className="text-white">Schedula.</span>
+    <aside className="w-1/6 bg-brand-purple-light p-6">
+      <div className="relative mb-8 ml-3.5 flex items-center justify-center text-3xl font-semibold text-white">
+        <img
+          src="logo.png"
+          className="flex h-32 w-32 items-center justify-center"
+        />
+        <span className="absolute inset-0 z-50 flex items-center justify-center text-white">
+          Schedula.
+        </span>
       </div>
       <nav className="space-y-6">
         <a
           href="#"
-          className="hover:bg-brand-purple-dark flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white"
+          className="flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-brand-purple-dark"
           onClick={() => handleClick("Subjects")}
         >
           <img src="DashBoard.png" alt="Dashboard Icon" className="h-8 w-8" />
@@ -29,7 +35,7 @@ const SideNavBar = () => {
         </a>
         <a
           href="#"
-          className="hover:bg-brand-purple-dark block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white"
+          className="block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-brand-purple-dark"
           onClick={() => handleClick("Calendar")}
         >
           <img src="Calendar.png" alt="explorer Icon" className="h-8 w-8" />
@@ -37,14 +43,14 @@ const SideNavBar = () => {
         </a>
         <a
           href="#"
-          className="hover:bg-brand-purple-dark block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white"
+          className="block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-brand-purple-dark"
         >
           <img src="settings.png" alt="task hub Icon" className="h-8 w-8" />
           Settings
         </a>
         <a
           href="#"
-          className="hover:bg-brand-purple-dark block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white"
+          className="block flex items-center gap-4 rounded px-4 py-2 text-center text-xl text-white hover:bg-brand-purple-dark"
           onClick={() => handleClick("Profile")}
         >
           <img src="Profile.png" alt="profile Icon" className="h-8 w-8" />
