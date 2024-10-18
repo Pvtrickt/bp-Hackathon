@@ -24,7 +24,7 @@ const PopUpModal = ({ onClose }: PopUpModalProp) => {
         // style={{ padding: "2rem 6rem 3rem 2rem" }}
       >
         <h1 className="text-bg-indigo-900 mb-8 text-2xl font-semibold text-brand-purple-dark">
-          Selected Subject/s:
+          Selected Subject(s):
         </h1>
         <div className="flex w-full flex-col space-y-6">
           <li className="flex flex-row items-center justify-between gap-60 rounded-3xl bg-brand-purple-light p-4 text-white shadow-xl">

@@ -13,18 +13,18 @@ import { useModalContext } from "providers/modal-provider";
 import AddEventModal from "components/schedule/_modals/add-event-modal";
 import ShowMoreEventsModal from "components/schedule/_modals/show-more-events-modal";
 import EventStyled from "../event-component/event-styled";
+import DailyPopUp from "../DailyPopUp";
 export default function MonthView() {
   const daysOfWeek = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
   const { getters, state } = useScheduler();
   const { showModal } = useModalContext();
 
   const [currentDate, setCurrentDate] = useState(new Date());
-
+  const [dailyModal, setDailyModal] = useState(false);
   const daysInMonth = getters.getDaysInMonth(
     currentDate.getMonth(),
     currentDate.getFullYear(),
   );
-
   const handlePrevMonth = () => {
     const newDate = new Date(
       currentDate.getFullYear(),
@@ -151,14 +151,54 @@ export default function MonthView() {
 
             return (
               <motion.div
-                className="group flex min-h-[150px] w-full flex-col rounded border-none hover:z-50"
-                key={dayObj.day}
+                className={clsx(
+                  "group flex min-h-[150px] w-full flex-col rounded border-none hover:z-50",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 0 &&
+                    "col-start-3",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 1 &&
+                    "col-start-6",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 2 &&
+                    "col-start-7",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 3 &&
+                    "col-start-3",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 4 &&
+                    "col-start-5",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 5 &&
+                    "col-start-1",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 6 &&
+                    "col-start-3",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 7 &&
+                    "col-start-6",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 8 &&
+                    "col-start-2",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 9 &&
+                    "col-start-4",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 10 &&
+                    "col-start-7",
+                  dayObj.day == 1 &&
+                    currentDate.getMonth() == 11 &&
+                    "col-start-2",
+                )}
                 variants={itemVariants}
               >
                 <Card
                   isPressable
                   className="border-default-100 relative flex h-full flex-grow border p-4"
-                  onClick={() => handleAddEvent(dayObj.day)}
+                  // onClick={() => handleAddEvent(dayObj.day)}
+                  onClick={() => {
+                    setDailyModal(!dailyModal);
+                  }}
                 >
                   <div
                     className={clsx(
@@ -172,7 +212,6 @@ export default function MonthView() {
                   </div>
                   <div className="flex w-full flex-grow flex-col gap-1 overflow-hidden">
                     {dayEvents.map((dayObj) => {
-                      const color = `bg-${dayObj.color}-200 text-${dayObj.color}-600`;
                       return (
                         <div
                           className={`w-full truncate rounded px-2 text-xs ${
@@ -182,7 +221,7 @@ export default function MonthView() {
                                 ? "bg-amber-200 text-amber-600"
                                 : dayObj.color === "lime"
                                   ? "bg-lime-200 text-lime-600"
-                                  : "bg-gray-200 text-gray-600" // fallback color
+                                  : "bg-gray-200 text-gray-600"
                           }`}
                           key={dayObj.id}
                         >
@@ -206,6 +245,13 @@ export default function MonthView() {
           })}
         </motion.div>
       </AnimatePresence>
+      {dailyModal && (
+        <DailyPopUp
+          onClose={() => {
+            setDailyModal(!dailyModal);
+          }}
+        />
+      )}
     </div>
   );
 }

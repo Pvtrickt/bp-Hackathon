@@ -7,7 +7,7 @@ interface customiseAssingmentProps {
   //   selected: boolean;
 }
 
-const CustomiseAssignment: FC<customiseAssingmentProps> = ({ assignment }) => {
+const MiniSubjectOption: FC<customiseAssingmentProps> = ({ assignment }) => {
   const [selected, setSelected] = useState(true);
 
   const handleClick = () => {
@@ -18,15 +18,14 @@ const CustomiseAssignment: FC<customiseAssingmentProps> = ({ assignment }) => {
       onClick={() => {
         handleClick();
       }}
-      className={`text-brand-purple-light flex w-full cursor-pointer flex-row justify-between rounded-full border px-5 py-6 shadow-2xl ${
+      className={`text-brand-purple-light flex w-full cursor-pointer flex-row justify-between rounded-md border px-3 py-2 text-xs shadow-2xl ${
         selected
           ? "bg-brand-purple-light hover:border-brand-purple-light hover:text-brand-purple-light text-white hover:bg-gray-100"
           : "border-brand-purple-light"
       }`}
     >
-      <div className="flex flex-row items-center justify-center gap-4">
-        <FaBookOpen />
-        <p className="text-sm font-semibold">{assignment}</p>
+      <div className="flex flex-row items-center justify-center gap-2">
+        <p className="font-semibold">{assignment}</p>
       </div>
       <input
         className="border-brand-purple-light border"
@@ -38,4 +37,4 @@ const CustomiseAssignment: FC<customiseAssingmentProps> = ({ assignment }) => {
   );
 };
 
-export default CustomiseAssignment;
+export default MiniSubjectOption;
