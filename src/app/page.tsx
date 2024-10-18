@@ -20,6 +20,7 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
 
   const toggleModal = () => {
     setIsPopUpModal(!isPopUpModal);
@@ -45,9 +46,36 @@ export default function Home() {
     setSearchTerm(event.target.value);
   };
 
+  //filters the courses based on the search input
   const filteredCourses = courses.filter((course) =>
     course.course_code.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const handleCourseSelection = (course: Course) => {
+    const isSelected = selectedCourses.some(
+      (selectedCourse) => selectedCourse.course_code === course.course_code,
+    );
+
+    if (isSelected) {
+      setSelectedCourses(
+        selectedCourses.filter(
+          (selectedCourse) => selectedCourse.course_code !== course.course_code,
+        ),
+      );
+    } else {
+      setSelectedCourses([...selectedCourses, course]); // i dont understand this, might have to ask chatgpt
+    }
+  };
+
+  const sortedCourses = [
+    ...selectedCourses,
+    ...filteredCourses.filter(
+      (course) =>
+        !selectedCourses.some(
+          (selectedCourse) => selectedCourse.course_code === course.course_code,
+        ),
+    ),
+  ];
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error fetching courses</div>;
@@ -63,7 +91,7 @@ export default function Home() {
           </header>
 
           <main className="px-20 pt-9">
-            <div className="flex flex-col px-10 mb-8 text-5xl">
+            <div className="mb-8 flex flex-col px-10 text-5xl">
               <span className="font-bold text-brand-purple-dark">
                 Nebula dreams, Schedula plans
               </span>
@@ -82,7 +110,7 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="subject id"
-                    className="text-xl h-10 w-full rounded-3xl focus:outline-none focus:ring-0"
+                    className="h-10 w-full rounded-3xl text-xl focus:outline-none focus:ring-0"
                     value={searchTerm}
                     onChange={handleSearchInput}
                   />
@@ -115,11 +143,16 @@ export default function Home() {
             </div>
 
             <div className="grid h-[500px] grid-cols-3 place-items-center justify-between gap-y-11 overflow-auto px-5 pt-10 text-center text-white">
-              {filteredCourses.map((course) => (
+              {sortedCourses.map((course) => (
                 <SubjectModal
                   key={course.course_code}
                   courseCode={course.course_code}
                   courseName={course.course_name}
+                  isSelected={selectedCourses.some(
+                    (selectedCourse) =>
+                      selectedCourse.course_code === course.course_code,
+                  )}
+                  onSelect={() => handleCourseSelection(course)}
                 />
               ))}
             </div>
