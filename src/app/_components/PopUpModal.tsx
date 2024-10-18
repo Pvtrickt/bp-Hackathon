@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 interface PopUpModalProp {
   onClose: () => void;
@@ -19,8 +20,8 @@ const PopUpModal = ({ onClose }: PopUpModalProp) => {
         onClick={(e) => e.stopPropagation()}
         // style={{ padding: "2rem 6rem 3rem 2rem" }}
       >
-        <h1 className="text-bg-indigo-900 mb-8 text-2xl font-semibold">
-          Select Subjects:
+        <h1 className="text-bg-indigo-900 text-brand-purple-dark mb-8 text-2xl font-semibold">
+          Selected Subject/s:
         </h1>
         <div className="flex w-full flex-col space-y-6">
           <li className="bg-brand-purple-light flex flex-row items-center justify-between gap-60 rounded-3xl p-4 text-white shadow-xl">
@@ -60,12 +61,22 @@ const PopUpModal = ({ onClose }: PopUpModalProp) => {
             </select>
           </li>
         </div>
-        <button
-          className="mt-8 w-60 rounded-full bg-yellow-500 px-6 py-2 text-white shadow-xl hover:bg-yellow-600"
-          onClick={handleClick}
-        >
-          Get my Timetable
-        </button>
+        <div className="flex flex-row justify-between">
+          <button
+            className="hover:bg-yellow-600m mt-8 flex w-60 flex-row justify-center gap-4 rounded-full bg-yellow-500 px-6 py-2 text-white shadow-xl"
+            onClick={handleClick}
+          >
+            <img src="edit2.png" className="h-5 w-5" />
+            <span>Edit assessments</span>
+          </button>
+          <button
+            className="hover:bg-yellow-600m mt-8 flex w-60 flex-row justify-center gap-4 rounded-full bg-yellow-500 px-6 py-2 text-white shadow-xl"
+            onClick={handleClick}
+          >
+            <img src="calendaricon.png" className="h-5 w-5" />
+            <span>Get Schedule</span>
+          </button>
+        </div>
       </div>
     </div>
   );

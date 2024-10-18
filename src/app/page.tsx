@@ -71,7 +71,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid h-[500px] grid-cols-3 place-items-center justify-between gap-y-11 overflow-scroll px-5 pt-10 text-center text-white">
+            <div className="grid h-[500px] grid-cols-3 place-items-center justify-between gap-y-11 overflow-auto px-5 pt-10 text-center text-white">
               <SubjectModal
                 courseCode="COMP1511"
                 courseName="Programming Fundamentals"
