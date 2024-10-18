@@ -5,7 +5,7 @@ const Calendar = () => {
   return (
     <PageLayout>
       <div className="align-center flex max-h-[60%] w-full flex-col overflow-y-scroll p-10">
-        <div className="text-3xl font-semibold text-brand-purple-dark">
+        <div className="text-brand-purple-dark text-3xl font-semibold">
           Timetable
         </div>
         <MonthView />

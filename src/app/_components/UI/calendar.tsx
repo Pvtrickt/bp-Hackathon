@@ -13,18 +13,18 @@ import { useModalContext } from "providers/modal-provider";
 import AddEventModal from "components/schedule/_modals/add-event-modal";
 import ShowMoreEventsModal from "components/schedule/_modals/show-more-events-modal";
 import EventStyled from "../event-component/event-styled";
+import DailyPopUp from "../DailyPopUp";
 export default function MonthView() {
   const daysOfWeek = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
   const { getters, state } = useScheduler();
   const { showModal } = useModalContext();
 
   const [currentDate, setCurrentDate] = useState(new Date());
-
+  const [dailyModal, setDailyModal] = useState(false);
   const daysInMonth = getters.getDaysInMonth(
     currentDate.getMonth(),
     currentDate.getFullYear(),
   );
-
   const handlePrevMonth = () => {
     const newDate = new Date(
       currentDate.getFullYear(),
@@ -158,7 +158,10 @@ export default function MonthView() {
                 <Card
                   isPressable
                   className="border-default-100 relative flex h-full flex-grow border p-4"
-                  onClick={() => handleAddEvent(dayObj.day)}
+                  // onClick={() => handleAddEvent(dayObj.day)}
+                  onClick={() => {
+                    setDailyModal(!dailyModal);
+                  }}
                 >
                   <div
                     className={clsx(
@@ -206,6 +209,13 @@ export default function MonthView() {
           })}
         </motion.div>
       </AnimatePresence>
+      {dailyModal && (
+        <DailyPopUp
+          onClose={() => {
+            setDailyModal(!dailyModal);
+          }}
+        />
+      )}
     </div>
   );
 }
