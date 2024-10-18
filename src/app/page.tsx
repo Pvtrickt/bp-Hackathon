@@ -27,11 +27,11 @@ export default function Home() {
 
           <main className="px-20 pt-14">
             <div className="mb-8 text-5xl">
-              <span className="font-bold text-indigo-800">Welcome!</span>
+              <span className="font-bold text-brand-purple-dark">Welcome!</span>
             </div>
 
             <div className="flex flex-col px-10">
-              <h2 className="mb-3 text-xl font-bold text-indigo-800">
+              <h2 className="mb-3 text-xl font-bold text-brand-purple-dark">
                 Choose your subjects:
               </h2>
 
@@ -50,13 +50,19 @@ export default function Home() {
                 </form>
                 <input />
               </div>
-              <div className="flex w-20 gap-x-1 pt-5">
-                <select id="filter" className="rounded-xl">
-                  <option value="filter">Sort By</option>
-                </select>
-                <select id="filter" className="rounded-xl">
-                  <option value="filter">filter</option>
-                </select>
+              <div className="flex gap-x-4 pt-5">
+                <div className="flex items-center border-2 border-brand-purple-dark rounded-full px-4 py-2 text-brand-purple-dark font-semibold">
+                  <img src="mini clock.png" alt="clock" className="w-5 h-5 mr-2"/>
+                  <select id="sortBy" className="bg-transparent outline-none cursor-pointer">
+                    <option value="sort">Sort By</option>
+                  </select>
+                </div>
+
+                <div className="flex items-center border-2 border-brand-purple-dark rounded-full px-4 py-2 text-brand-purple-dark font-semibold">
+                  <select id="filter" className="bg-transparent outline-none cursor-pointer">
+                    <option value="filter">Filter</option>
+                  </select>
+                </div>
               </div>
             </div>
 
