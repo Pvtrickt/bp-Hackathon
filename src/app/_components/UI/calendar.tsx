@@ -146,11 +146,12 @@ export default function MonthView() {
             </div>
           ))}
 
-          {daysInMonth.map((dayObj) => {
+          {daysInMonth.map((dayObj, i) => {
             const dayEvents = getters.getEventsForDay(dayObj.day, currentDate); // Get events for this day
 
             return (
               <motion.div
+                key={i}
                 className={clsx(
                   "group flex min-h-[150px] w-full flex-col rounded border-none hover:z-50",
                   dayObj.day == 1 &&
