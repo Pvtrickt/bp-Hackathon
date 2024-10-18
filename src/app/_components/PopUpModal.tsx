@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 interface PopUpModalProp {
   onClose: () => void;
@@ -24,41 +23,41 @@ const PopUpModal = ({ onClose }: PopUpModalProp) => {
         onClick={(e) => e.stopPropagation()}
         // style={{ padding: "2rem 6rem 3rem 2rem" }}
       >
-        <h1 className="text-bg-indigo-900 text-brand-purple-dark mb-8 text-2xl font-semibold">
+        <h1 className="text-bg-indigo-900 mb-8 text-2xl font-semibold text-brand-purple-dark">
           Selected Subject/s:
         </h1>
         <div className="flex w-full flex-col space-y-6">
-          <li className="bg-brand-purple-light flex flex-row items-center justify-between gap-60 rounded-3xl p-4 text-white shadow-xl">
+          <li className="flex flex-row items-center justify-between gap-60 rounded-3xl bg-brand-purple-light p-4 text-white shadow-xl">
             <div>
               <h1 className="text-2xl">COMP1511</h1>
               <h2 text-lg>Programming Fundamentals</h2>
             </div>
 
-            <select className="text-brand-purple-light w-22 h-10 rounded-full bg-white px-3 py-2 text-sm">
+            <select className="w-22 h-10 rounded-full bg-white px-3 py-2 text-sm text-brand-purple-light">
               <option value="term1">Term 1</option>
               <option value="term2">Term 2</option>
               <option value="term3">Term 3</option>
             </select>
           </li>
-          <li className="bg-brand-purple-light flex flex-row items-center justify-between gap-60 rounded-3xl p-4 text-white shadow-xl">
+          <li className="flex flex-row items-center justify-between gap-60 rounded-3xl bg-brand-purple-light p-4 text-white shadow-xl">
             <div>
               <h1 className="text-2xl">MATH1131</h1>
               <h2 text-lg>Maths 1A</h2>
             </div>
 
-            <select className="text-brand-purple-light w-22 h-10 rounded-full bg-white px-3 py-2 text-sm">
+            <select className="w-22 h-10 rounded-full bg-white px-3 py-2 text-sm text-brand-purple-light">
               <option value="term1">Term 1</option>
               <option value="term2">Term 2</option>
               <option value="term3">Term 3</option>
             </select>
           </li>
-          <li className="bg-brand-purple-light flex flex-row items-center justify-between gap-60 rounded-3xl p-4 text-white shadow-xl">
+          <li className="flex flex-row items-center justify-between gap-60 rounded-3xl bg-brand-purple-light p-4 text-white shadow-xl">
             <div>
               <h1 className="text-2xl">MATH1231</h1>
               <h2 text-lg>Maths 1B</h2>
             </div>
 
-            <select className="text-brand-purple-light w-22 h-10 rounded-full bg-white px-3 py-2 text-sm">
+            <select className="w-22 h-10 rounded-full bg-white px-3 py-2 text-sm text-brand-purple-light">
               <option value="term1">Term 1</option>
               <option value="term2">Term 2</option>
               <option value="term3">Term 3</option>
