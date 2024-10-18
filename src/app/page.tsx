@@ -72,7 +72,7 @@ export default function Home() {
               <h2 className="mb-3 text-xl font-bold text-brand-purple-dark">
                 Choose your subjects:
               </h2>
-              <div className="flex items-center rounded-3xl bg-white px-4 pt-1 shadow-lg">
+              <div className="flex items-center rounded-3xl bg-white px-4 pt-1 shadow-lg focus-within:ring-2 focus-within:ring-brand-purple-dark">
                 <img
                   src="magnifying-glass.png"
                   alt="Magnifying Glass"
@@ -82,7 +82,7 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="subject id"
-                    className="h-10 w-full rounded-3xl"
+                    className="text-xl h-10 w-full rounded-3xl focus:outline-none focus:ring-0"
                     value={searchTerm}
                     onChange={handleSearchInput}
                   />
