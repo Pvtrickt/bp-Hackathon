@@ -91,7 +91,7 @@ export default function Home() {
           </header>
 
           <main className="px-20 pt-9">
-            <div className="flex flex-col px-10 mb-8 text-5xl">
+            <div className="mb-8 flex flex-col px-10 text-5xl">
               <span className="font-bold text-brand-purple-dark">
                 Nebula dreams, Schedula plans
               </span>
@@ -110,7 +110,7 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="subject id"
-                    className="text-xl h-10 w-full rounded-3xl focus:outline-none focus:ring-0"
+                    className="h-10 w-full rounded-3xl text-xl focus:outline-none focus:ring-0"
                     value={searchTerm}
                     onChange={handleSearchInput}
                   />
@@ -143,14 +143,14 @@ export default function Home() {
             </div>
 
             <div className="grid h-[500px] grid-cols-3 place-items-center justify-between gap-y-11 overflow-auto px-5 pt-10 text-center text-white">
-              {filteredCourses.map((course) => (
+              {sortedCourses.map((course) => (
                 <SubjectModal
                   key={course.course_code}
                   courseCode={course.course_code}
                   courseName={course.course_name}
                   isSelected={selectedCourses.some(
-                    (selectedCourses) =>
-                      selectedCourses.course_code === course.course_code,
+                    (selectedCourse) =>
+                      selectedCourse.course_code === course.course_code,
                   )}
                   onSelect={() => handleCourseSelection(course)}
                 />

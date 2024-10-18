@@ -3,12 +3,21 @@ import { useState } from "react";
 interface SubjectModalProps {
   courseCode: string;
   courseName: string;
+  isSelected: boolean;
+  onSelect: () => void;
 }
 
-const SubjectModal = ({ courseCode, courseName }: SubjectModalProps) => {
+const SubjectModal = ({
+  courseCode,
+  courseName,
+  isSelected,
+  onSelect,
+}: SubjectModalProps) => {
   const [color, setColor] = useState("bg-indigo-900");
 
-  const changeColor = () => {
+  const handleClick = () => {
+    onSelect();
+
     setColor(
       color === "bg-indigo-900" ? "bg-brand-purple-light" : "bg-indigo-900",
     );
@@ -17,7 +26,7 @@ const SubjectModal = ({ courseCode, courseName }: SubjectModalProps) => {
   return (
     <div
       className={`flex items-center justify-between p-6 shadow-lg ${color}`}
-      onClick={changeColor}
+      onClick={handleClick}
       style={{
         width: "300px",
         height: "200px",
