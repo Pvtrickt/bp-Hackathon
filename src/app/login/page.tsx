@@ -28,11 +28,10 @@ export default function Login() {
           <Image
             src={"/logo.png"}
             alt={"logo"}
-            width={250} // Set a default width
-            height={150} // Set a default height to maintain aspect ratio
+            width={350} // Set a default width
+            height={350} // Set a default height to maintain aspect ratio
             // className="h-auto w-1/2 md:w-1/3 lg:w-1/4" // Responsively adjust the width
             // layout="responsive" // Ensure the image maintains aspect ratio
-            className="translate-x-[100px]"
           />
           <h1 className="text-brand-purple-light -mt-16 flex flex-row text-7xl font-semibold">
             Schedula.
