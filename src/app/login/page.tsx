@@ -25,7 +25,15 @@ export default function Login() {
     <main className="grid h-screen grid-cols-2">
       <div className="center flex h-full items-center justify-start">
         <div className="flex flex-col gap-3 p-16">
-          <h1 className="flex flex-row text-7xl font-semibold text-brand-purple-light">
+          <Image
+            src={"/logo.png"}
+            alt={"logo"}
+            width={350} // Set a default width
+            height={350} // Set a default height to maintain aspect ratio
+            // className="h-auto w-1/2 md:w-1/3 lg:w-1/4" // Responsively adjust the width
+            // layout="responsive" // Ensure the image maintains aspect ratio
+          />
+          <h1 className="text-brand-purple-light -mt-16 flex flex-row text-7xl font-semibold">
             Schedula.
           </h1>
           <p className="pl-1 font-light">
@@ -56,14 +64,14 @@ export default function Login() {
             <DetailsInput
               type="text"
               placeholder="Username"
-              icon={<FaUser className="h-4 w-4 text-brand-purple-dark" />}
+              icon={<FaUser className="text-brand-purple-dark h-4 w-4" />}
               value={username}
               onChange={handleChange(setUsername)}
             />
             <DetailsInput
               type="password"
               placeholder="Password"
-              icon={<FaLock className="h-4 w-4 text-brand-purple-dark" />}
+              icon={<FaLock className="text-brand-purple-dark h-4 w-4" />}
               value={password}
               password={true}
               onChange={handleChange(setPassword)}
@@ -76,7 +84,7 @@ export default function Login() {
         </div>
         <button
           onClick={handleClick}
-          className="rounded-full bg-brand-purple-dark p-2 px-12 text-white shadow-2xl"
+          className="bg-brand-purple-dark rounded-full p-2 px-12 text-white shadow-2xl"
         >
           Sign in
         </button>

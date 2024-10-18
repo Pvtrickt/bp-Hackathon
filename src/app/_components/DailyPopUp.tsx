@@ -125,7 +125,28 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
                 <div className="absolute right-3 top-3 cursor-pointer">
                   <RiDeleteBin6Fill color="grey" />
                 </div>
-                MATH1231 - Weekly Labs
+                COMP1511 - Assignment 1A
+              </div>
+            </div>
+            <div className="flex flex-row">
+              <div className="text-light flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
+                <input
+                  type={"text"}
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
+                  placeholder="Start time"
+                ></input>
+                <div className="h-[60px] w-[1px] border border-blue-400"></div>
+                <input
+                  type={"text"}
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
+                  placeholder="End time"
+                ></input>
+              </div>
+              <div className="relative flex w-[95%] justify-start rounded-lg bg-blue-200 p-3 text-left text-xs text-blue-600">
+                <div className="absolute right-3 top-3 cursor-pointer">
+                  <RiDeleteBin6Fill color="grey" />
+                </div>
+                COMP1511 - Assignment 1A
               </div>
             </div>
           </div>
@@ -260,40 +281,39 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
           <div className="h-[300px] h-full w-full overflow-auto pt-5">
             <div className="flex flex-row">
               <div className="flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
-                <p>08:00 am</p>
-                <div className="h-[60px] w-[1px] border border-blue-400"></div>
                 <p>10:00 am</p>
+                <div className="h-[60px] w-[1px] border border-blue-400"></div>
+                <p>12:00 pm</p>
               </div>
-              <div className="flex h-[90px] w-[95%] justify-start rounded-lg bg-blue-200 p-3 text-left text-xs text-blue-600">
-                COMP1511 - Assignment 1A
+              <div className="flex h-[100px] w-[95%] justify-start rounded-lg bg-sky-200 p-3 text-left text-xs text-sky-600">
+                COMP1511 - Weekly Labs
               </div>
             </div>
             <div className="flex flex-row">
               <div className="flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
                 <div className="h-[60px] w-[1px] border border-orange-400"></div>
-                <p>10:50 am</p>
+                <p>1:50 pm</p>
               </div>
-              <div className="flex h-[90px] w-[95%] justify-start rounded-lg bg-orange-200 p-3 text-left text-xs text-orange-600">
-                COMP1531 - Assignment 2B
+              <div className="-my-2 mb-2 flex h-[100px] w-[95%] justify-start rounded-lg bg-sky-200 p-3 text-left text-xs text-sky-600">
+                Deadline: COMP1511 Weekly Labs
               </div>
             </div>
             <div className="flex flex-row">
               <div className="flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
                 <div className="h-[60px] w-[1px] border border-orange-400"></div>
-                <p>10:50 am</p>
+                <p>3:00 pm</p>
               </div>
-              <div className="flex h-[90px] w-[95%] justify-start rounded-lg bg-orange-200 p-3 text-left text-xs text-orange-600">
-                COMP1531 - Assignment 2B
+              <div className="mb-2 flex h-[100px] w-[95%] justify-start rounded-lg bg-amber-200 p-3 text-left text-xs text-amber-600">
+                MATH1131 - Weekly Labs
               </div>
             </div>
             <div className="flex flex-row">
               <div className="flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
-                <p>08:00 am</p>
-                <div className="h-[60px] w-[1px] border border-blue-400"></div>
-                <p>10:00 am</p>
+                <div className="h-[75px] w-[1px] border border-blue-400"></div>
+                <p>6:00 pm</p>
               </div>
-              <div className="flex h-[90px] w-[95%] justify-start rounded-lg bg-blue-200 p-3 text-left text-xs text-blue-600">
-                COMP1511 - Assignment 1A
+              <div className="flex h-[120px] w-[95%] justify-start rounded-lg bg-lime-200 p-3 text-left text-xs text-lime-600">
+                MATH1231 - Weekly Labs
               </div>
             </div>
           </div>
