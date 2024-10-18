@@ -14,26 +14,21 @@ export default function Home() {
   return (
     <div>
       {isPopUpModal && <PopUpModal onClose={() => setIsPopUpModal(false)} />}
-      <div className="flex h-screen">
+      <div className="flex h-full">
         <SideNavBar />
-        <div className="font-roboto flex flex-grow flex-col rounded-md bg-gray-100">
-          <header
-            className="bg-brand-purple-light p-10 text-white"
-            style={{ boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)" }}
-          >
+        <div className="font-roboto flex flex-grow flex-col bg-gray-100">
+          <header className="bg-brand-purple-light w-full border-0 p-10 text-white">
             <h1 className="text-xl"></h1>
           </header>
 
-          <main className="px-20 pt-14">
+          <main className="px-20 pt-9">
             <div className="mb-8 text-5xl">
-              <span className="font-bold text-indigo-800">Welcome!</span>
+              <span className="pl-9 font-bold text-indigo-800">Welcome!</span>
             </div>
-
             <div className="flex flex-col px-10">
               <h2 className="mb-3 text-xl font-bold text-indigo-800">
                 Choose your subjects:
               </h2>
-
               <div className="flex items-center rounded-3xl bg-white px-4 pt-1 shadow-lg">
                 <img
                   src="magnifying-glass.png"
@@ -58,7 +53,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 place-items-center justify-between gap-y-11 px-5 pt-10 text-center text-white">
+            <div className="grid h-[500px] grid-cols-3 place-items-center justify-between gap-y-11 overflow-scroll px-5 pt-10 text-center text-white">
               {/* gonna all of this to somewhere and integrate API */}
               <SubjectModal
                 courseCode="COMP1511"
@@ -66,6 +61,10 @@ export default function Home() {
               />
               <SubjectModal courseCode="MATH1311" courseName="Maths 1A" />
               <SubjectModal courseCode="MATH1231" courseName="Maths 1B" />
+              <SubjectModal courseCode="MATH1231" courseName="pol" />
+              <SubjectModal courseCode="MATH1231" courseName="pol" />
+              <SubjectModal courseCode="MATH1231" courseName="pol" />
+              <SubjectModal courseCode="MATH1231" courseName="pol" />
               <SubjectModal courseCode="MATH1231" courseName="pol" />
               <SubjectModal courseCode="MATH1231" courseName="pol" />
               <SubjectModal courseCode="MATH1231" courseName="pol" />
