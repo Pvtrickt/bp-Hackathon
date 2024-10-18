@@ -18,6 +18,7 @@ export interface Event {
   startDate: Date;
   endDate: Date;
   variant?: Variant;
+  color?: string;
 }
 
 interface SchedulerState {
@@ -34,7 +35,7 @@ type Action =
 interface Handlers {
   handleEventStyling: (
     event: Event,
-    dayEvents: Event[]
+    dayEvents: Event[],
   ) => {
     height: string;
     left: string;
@@ -49,7 +50,7 @@ interface Handlers {
 interface Getters {
   getDaysInMonth: (
     month: number,
-    year: number
+    year: number,
   ) => { day: number; events: Event[] }[];
   getEventsForDay: (day: number, currentDate: Date) => Event[];
   getDaysInWeek: (week: number, year: number) => Date[];
@@ -92,20 +93,13 @@ export type EventFormData = z.infer<typeof eventSchema>;
 const initialState: SchedulerState = {
   events: [
     {
-      id: "1d4c5c73-b5fa-4f67-bb6e-1d5d66cbd57d",
-      title: "Kickoff Meeting.",
-      description: "Initial project kickoff with stakeholders.",
-      startDate: new Date("2024-10-07T09:00:00"),
-      endDate: new Date("2024-10-07T10:00:00"),
-      variant: "primary",
-    },
-    {
       id: "5e1b7b57-0c3e-4d61-bcd7-7fa77b2a58b1",
-      title: "Client Feedback Session.",
+      title: "COMP1511 - Assignment 1A",
       description: "Review client feedback on the recent project.",
       startDate: new Date("2024-10-07T11:00:00"),
       endDate: new Date("2024-10-07T12:30:00"),
       variant: "success",
+      color: "amber",
     },
     {
       id: "e68a77f2-5891-4a6f-9a48-b14e2f9f8141",
@@ -114,6 +108,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-08T14:00:00"),
       endDate: new Date("2024-10-08T15:30:00"),
       variant: "warning",
+      color: "sky",
     },
     {
       id: "0e6e1437-249c-4c81-8c04-4f5a0b3d9a93",
@@ -122,6 +117,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-09T10:00:00"),
       endDate: new Date("2024-10-09T11:30:00"),
       variant: "danger",
+      color: "sky",
     },
     {
       id: "8f93e1a7-b4ec-4b75-9f41-5261cd6d8d25",
@@ -130,6 +126,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-09T09:30:00"),
       endDate: new Date("2024-10-09T10:00:00"),
       variant: "default",
+      color: "sky",
     },
     {
       id: "d3e5c45a-ef1d-4bc9-b01d-9c7f3c8c7a5b",
@@ -138,6 +135,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-10T13:00:00"),
       endDate: new Date("2024-10-10T14:00:00"),
       variant: "primary",
+      color: "sky",
     },
     {
       id: "d01ab0ec-5b5a-4f79-97ec-b64e62956c71",
@@ -146,6 +144,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-10T10:00:00"),
       endDate: new Date("2024-10-10T11:30:00"),
       variant: "success",
+      color: "sky",
     },
     {
       id: "0f8b843e-8f72-44ec-910f-4aa0f368b2c8",
@@ -154,6 +153,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-11T16:00:00"),
       endDate: new Date("2024-10-11T19:00:00"),
       variant: "warning",
+      color: "sky",
     },
     {
       id: "5a0c74bc-c3d8-4c37-92e2-b4b9b73dbf2b",
@@ -162,6 +162,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-12T10:30:00"),
       endDate: new Date("2024-10-12T12:00:00"),
       variant: "danger",
+      color: "sky",
     },
     {
       id: "3f40cd3c-bc73-4eab-ae02-032f9610d0c4",
@@ -170,14 +171,16 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-12T14:00:00"),
       endDate: new Date("2024-10-12T15:00:00"),
       variant: "default",
+      color: "sky",
     },
     {
       id: "3a1e6f45-91b0-4d88-bb34-6dbf17326c98",
       title: "Conference Preparation.",
       description: "Prepare for the upcoming industry conference.",
       startDate: new Date("2024-10-13T08:00:00"),
-      endDate: new Date("2024-10-13T10:00:00"),
+      endDate: new Date("2024-10-14T10:00:00"),
       variant: "primary",
+      color: "sky",
     },
     {
       id: "4c1f4e5a-bb6d-43eb-846e-1f5c403203f2",
@@ -186,6 +189,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-13T09:00:00"),
       endDate: new Date("2024-10-13T10:30:00"),
       variant: "success",
+      color: "sky",
     },
     {
       id: "6e18bc5f-5d4e-407c-8395-3b2ae2a3c65a",
@@ -194,6 +198,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-13T13:00:00"),
       endDate: new Date("2024-10-13T15:00:00"),
       variant: "warning",
+      color: "sky",
     },
     {
       id: "d09e9e34-5c5f-44f7-8f8a-8cc9dcda7aa2",
@@ -202,6 +207,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-12T22:00:00"),
       endDate: new Date("2024-10-13T02:00:00"),
       variant: "danger",
+      color: "sky",
     },
     {
       id: "09b6e1d5-3ab6-4d99-93e5-e98b8b49d5f6",
@@ -210,6 +216,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-07T10:00:00"),
       endDate: new Date("2024-10-07T12:00:00"),
       variant: "default",
+      color: "sky",
     },
     {
       id: "53c9fcd3-80ee-4c76-b2c3-2c65b73f9785",
@@ -218,6 +225,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-08T15:00:00"),
       endDate: new Date("2024-10-08T16:00:00"),
       variant: "primary",
+      color: "sky",
     },
     {
       id: "4cf73125-9477-4798-8f1f-3cd18a64b23a",
@@ -226,6 +234,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-09T14:00:00"),
       endDate: new Date("2024-10-09T15:30:00"),
       variant: "success",
+      color: "lime",
     },
     {
       id: "9824cf9c-7d70-4209-b8b8-7092875c3038",
@@ -234,6 +243,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-10T10:00:00"),
       endDate: new Date("2024-10-10T11:00:00"),
       variant: "warning",
+      color: "sky",
     },
     {
       id: "e8c64046-2097-41e5-8b86-d300d5710579",
@@ -242,6 +252,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-11T13:00:00"),
       endDate: new Date("2024-10-11T15:00:00"),
       variant: "danger",
+      color: "pink",
     },
     {
       id: "12d8b2c5-b13e-4c25-89e8-3d4df1ae3c41",
@@ -250,6 +261,7 @@ const initialState: SchedulerState = {
       startDate: new Date("2024-10-12T11:00:00"),
       endDate: new Date("2024-10-12T12:30:00"),
       variant: "danger",
+      color: "lime",
     },
   ],
 
