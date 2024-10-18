@@ -1,28 +1,27 @@
 "use client";
-import { getServerAuthSession } from "~/server/auth";
-import { api } from "~/trpc/server";
 import CustomiseCard from "../_components/customise-modal";
 import SideNavBar from "../_components/SideNavbar";
-import SubjectModal from "../_components/SubjectModal";
+import { useRouter } from "next/navigation";
 
-export default async function Home() {
+export default function Home() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("../calendar");
+  };
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-full bg-gray-100">
       <SideNavBar />
       <div className="flex flex-grow flex-col rounded-md">
-        <header
-          className="bg-brand-purple-light p-10 text-white"
-          style={{ boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)" }}
-        >
+        <header className="bg-brand-purple-light p-10 text-white">
           <h1 className="text-xl"></h1>
         </header>
 
-        <main className="flex h-screen flex-col gap-8 overflow-scroll p-16">
-          <h1 className="text-brand-purple-dark text-3xl font-semibold">
+        <main className="flex h-screen flex-col gap-8 overflow-auto p-16">
+          <h1 className="text-3xl font-semibold text-brand-purple-dark">
             Let&apos;s customise your timetable
           </h1>
 
-          <div className="text-brand-purple-dark flex flex-col justify-start">
+          <div className="flex flex-col justify-start text-brand-purple-dark">
             <h1 className="text-xl font-semibold">Subjects</h1>
             <p className="text-sm">
               Select the assignments you would like shown on your planner for
@@ -52,6 +51,13 @@ export default async function Home() {
             assignment3={"Assignment (10%) (Individual)"}
             assignment4={"Final Examination (50%) (Individual)"}
           />
+
+          <button
+            className="mb-10 ml-9 mt-4 w-56 rounded-full bg-yellow-500 px-6 py-2 text-white hover:bg-yellow-600"
+            onClick={handleClick}
+          >
+            Confirm Assessments
+          </button>
         </main>
       </div>
     </div>
