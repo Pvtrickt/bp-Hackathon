@@ -63,9 +63,9 @@ export default function Home() {
           </header>
 
           <main className="px-20 pt-9">
-            <div className="mb-8 text-5xl">
+            <div className="flex flex-col px-10 mb-8 text-5xl">
               <span className="font-bold text-brand-purple-dark">
-                Welcome, your personal AI scheduling assistant
+                Nebula dreams, Schedula plans
               </span>
             </div>
             <div className="flex flex-col px-10">
