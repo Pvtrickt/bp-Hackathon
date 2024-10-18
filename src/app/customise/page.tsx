@@ -47,8 +47,8 @@ export default function Home() {
             assignment4={"Final Examination (50%) (Individual)"}
           />
 
-          <button className="mb-10 ml-9 mt-4 rounded-full bg-yellow-500 px-6 py-2 text-white hover:bg-yellow-600">
-            Select Subjects
+          <button className="mb-10 ml-9 mt-4 w-56 rounded-full bg-yellow-500 px-6 py-2 text-white hover:bg-yellow-600">
+            Confirm Assessments
           </button>
         </main>
       </div>
