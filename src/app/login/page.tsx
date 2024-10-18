@@ -25,8 +25,8 @@ export default function Login() {
     <main className="grid h-screen grid-cols-2">
       <div className="center flex h-full items-center justify-start">
         <div className="flex flex-col gap-3 p-16">
-          <h1 className="text-brand-purple-light flex flex-row text-7xl font-semibold">
-            Schedula
+          <h1 className="flex flex-row text-7xl font-semibold text-brand-purple-light">
+            Schedula.
           </h1>
           <p className="pl-1 font-light">
             Meet Schedula &#45; your ultimate study companion! Effortlessly
@@ -56,14 +56,14 @@ export default function Login() {
             <DetailsInput
               type="text"
               placeholder="Username"
-              icon={<FaUser className="text-brand-purple-dark h-4 w-4" />}
+              icon={<FaUser className="h-4 w-4 text-brand-purple-dark" />}
               value={username}
               onChange={handleChange(setUsername)}
             />
             <DetailsInput
               type="password"
               placeholder="Password"
-              icon={<FaLock className="text-brand-purple-dark h-4 w-4" />}
+              icon={<FaLock className="h-4 w-4 text-brand-purple-dark" />}
               value={password}
               password={true}
               onChange={handleChange(setPassword)}
@@ -76,7 +76,7 @@ export default function Login() {
         </div>
         <button
           onClick={handleClick}
-          className="bg-brand-purple-dark rounded-full p-2 px-12 text-white shadow-2xl"
+          className="rounded-full bg-brand-purple-dark p-2 px-12 text-white shadow-2xl"
         >
           Sign in
         </button>

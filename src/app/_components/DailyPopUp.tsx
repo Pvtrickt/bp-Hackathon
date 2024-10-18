@@ -26,7 +26,7 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
     >
       {editMode ? (
         <div
-          className="relative flex w-[32%] flex-col items-center justify-center gap-3 overflow-scroll rounded-2xl bg-white p-9"
+          className="relative flex w-[32%] flex-col items-center justify-center gap-3 overflow-auto rounded-2xl bg-white p-9"
           onClick={(e) => e.stopPropagation()}
         >
           <div
@@ -34,11 +34,11 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
             className="absolute right-6 top-6 cursor-pointer"
           >
             <RxCross2
-              className="text-brand-purple-light text-2xl font-bold"
+              className="text-2xl font-bold text-brand-purple-light"
               style={{ strokeWidth: "0.5" }} // Thicker stroke
             />
           </div>
-          <div className="text-brand-purple-dark flex w-full flex-row items-center gap-4 text-left text-2xl font-semibold">
+          <div className="flex w-full flex-row items-center gap-4 text-left text-2xl font-semibold text-brand-purple-dark">
             <h1>Edit Preview</h1>
           </div>
 
@@ -55,18 +55,81 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
             <DailyPreviewDate Day={"Fri"} Date={13} />
             <DailyPreviewDate Day={"Sat"} Date={14} />
           </div>
-          <div className="h-full w-full overflow-scroll pt-5">
+          <div className="flex h-[300px] w-full flex-col gap-y-2 overflow-auto pt-5">
             <div className="flex flex-row">
               <div className="text-light flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
                 <input
                   type={"text"}
-                  className="border-brand-purple-dark w-full rounded-md border px-2"
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
                   placeholder="Start time"
                 ></input>
                 <div className="h-[60px] w-[1px] border border-blue-400"></div>
                 <input
                   type={"text"}
-                  className="border-brand-purple-dark w-full rounded-md border px-2"
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
+                  placeholder="End time"
+                ></input>
+              </div>
+              <div className="relative flex w-[95%] justify-start rounded-lg bg-blue-200 p-3 text-left text-xs text-blue-600">
+                <div className="absolute right-3 top-3 cursor-pointer">
+                  <RiDeleteBin6Fill color="grey" />
+                </div>
+                COMP1511 - Assignment 1A
+              </div>
+            </div>
+            <div className="flex flex-row">
+              <div className="text-light flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
+                <input
+                  type={"text"}
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
+                  placeholder="Start time"
+                ></input>
+                <div className="h-[60px] w-[1px] border border-blue-400"></div>
+                <input
+                  type={"text"}
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
+                  placeholder="End time"
+                ></input>
+              </div>
+              <div className="relative flex w-[95%] justify-start rounded-lg bg-blue-200 p-3 text-left text-xs text-blue-600">
+                <div className="absolute right-3 top-3 cursor-pointer">
+                  <RiDeleteBin6Fill color="grey" />
+                </div>
+                COMP1511 - Assignment 1A
+              </div>
+            </div>
+            <div className="flex flex-row">
+              <div className="text-light flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
+                <input
+                  type={"text"}
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
+                  placeholder="Start time"
+                ></input>
+                <div className="h-[60px] w-[1px] border border-blue-400"></div>
+                <input
+                  type={"text"}
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
+                  placeholder="End time"
+                ></input>
+              </div>
+              <div className="relative flex w-[95%] justify-start rounded-lg bg-blue-200 p-3 text-left text-xs text-blue-600">
+                <div className="absolute right-3 top-3 cursor-pointer">
+                  <RiDeleteBin6Fill color="grey" />
+                </div>
+                COMP1511 - Assignment 1A
+              </div>
+            </div>
+            <div className="flex flex-row">
+              <div className="text-light flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
+                <input
+                  type={"text"}
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
+                  placeholder="Start time"
+                ></input>
+                <div className="h-[60px] w-[1px] border border-blue-400"></div>
+                <input
+                  type={"text"}
+                  className="w-full rounded-md border border-brand-purple-dark px-2"
                   placeholder="End time"
                 ></input>
               </div>
@@ -81,7 +144,7 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
           {addTask && (
             <div className="flex w-full flex-col gap-4 pt-10">
               <hr className="border-brand-purple-dark"></hr>
-              <div className="text-brand-purple-dark text-sm font-semibold">
+              <div className="text-sm font-semibold text-brand-purple-dark">
                 <h1
                   onClick={() => {
                     setSubject1Open(!subject1Open);
@@ -142,7 +205,7 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
                   <div>
                     <input
                       type={"text"}
-                      className="border-brand-purple-dark w-full rounded-md border px-2 py-2"
+                      className="w-full rounded-md border border-brand-purple-dark px-2 py-2"
                       placeholder="Insert Task"
                     ></input>
                   </div>
@@ -155,7 +218,7 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
               onClick={() => {
                 setAddTask(!addTask);
               }}
-              className="bg-brand-purple-dark w-[100px] rounded-lg p-2 text-sm text-white"
+              className="w-[100px] rounded-lg bg-brand-purple-dark p-2 text-sm text-white"
             >
               Add Task
             </button>
@@ -163,7 +226,7 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
               onClick={() => {
                 setEditMode(!editMode);
               }}
-              className="bg-brand-purple-dark w-[100px] rounded-lg p-2 text-sm text-white"
+              className="w-[100px] rounded-lg bg-brand-purple-dark p-2 text-sm text-white"
             >
               Done
             </button>
@@ -179,11 +242,11 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
             className="absolute right-6 top-6 cursor-pointer"
           >
             <RxCross2
-              className="text-brand-purple-light text-2xl font-bold"
+              className="text-2xl font-bold text-brand-purple-light"
               style={{ strokeWidth: "0.5" }} // Thicker stroke
             />
           </div>
-          <div className="text-brand-purple-dark flex w-full flex-row items-center gap-4 text-left text-2xl font-semibold">
+          <div className="flex w-full flex-row items-center gap-4 text-left text-2xl font-semibold text-brand-purple-dark">
             <h1>Daily Preview</h1>
             <MdModeEdit
               className="cursor-pointer"
@@ -206,7 +269,7 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
             <DailyPreviewDate Day={"Fri"} Date={13} />
             <DailyPreviewDate Day={"Sat"} Date={14} />
           </div>
-          <div className="h-full w-full overflow-scroll pt-5">
+          <div className="h-[300px] h-full w-full overflow-auto pt-5">
             <div className="flex flex-row">
               <div className="flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
                 <p>08:00 am</p>
@@ -224,6 +287,25 @@ const DailyPopUp = ({ onClose }: PopUpModalProp) => {
               </div>
               <div className="flex h-[90px] w-[95%] justify-start rounded-lg bg-orange-200 p-3 text-left text-xs text-orange-600">
                 COMP1531 - Assignment 2B
+              </div>
+            </div>
+            <div className="flex flex-row">
+              <div className="flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
+                <div className="h-[60px] w-[1px] border border-orange-400"></div>
+                <p>10:50 am</p>
+              </div>
+              <div className="flex h-[90px] w-[95%] justify-start rounded-lg bg-orange-200 p-3 text-left text-xs text-orange-600">
+                COMP1531 - Assignment 2B
+              </div>
+            </div>
+            <div className="flex flex-row">
+              <div className="flex w-[80px] flex-col items-center justify-center gap-3 pr-2 text-xs">
+                <p>08:00 am</p>
+                <div className="h-[60px] w-[1px] border border-blue-400"></div>
+                <p>10:00 am</p>
+              </div>
+              <div className="flex h-[90px] w-[95%] justify-start rounded-lg bg-blue-200 p-3 text-left text-xs text-blue-600">
+                COMP1511 - Assignment 1A
               </div>
             </div>
           </div>
