@@ -1,16 +1,13 @@
 "use client";
-import { useState } from "react";
-import CustomiseCard from "../_components/customise-modal";
-import DailyPopUp from "../_components/DailyPopUp";
-import SideNavBar from "../_components/SideNavbar";
 import { useRouter } from "next/navigation";
+import CustomiseCard from "../_components/customise-modal";
+import SideNavBar from "../_components/SideNavbar";
 
 export default function Home() {
   const router = useRouter();
   const handleClick = () => {
     router.push("../calendar");
   };
-  const [open, setOpen] = useState(true);
   return (
     <div className="flex h-full bg-gray-100">
       <SideNavBar />
@@ -59,7 +56,6 @@ export default function Home() {
           >
             Confirm Assessments
           </button>
-          {open && <DailyPopUp onClose={() => setOpen(!open)} />}{" "}
         </main>
       </div>
     </div>
