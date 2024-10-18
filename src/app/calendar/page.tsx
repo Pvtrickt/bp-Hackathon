@@ -4,11 +4,13 @@ import PageLayout from "../_components/PageLayout";
 const Calendar = () => {
   return (
     <PageLayout>
-      <div className="align-center flex max-h-[60%] w-full flex-col overflow-y-scroll p-10">
-        <div className="text-brand-purple-dark text-3xl font-semibold">
-          Timetable
+      <div className="bg-brand-purple-light">
+        <div className="align-center flex max-h-[60%] w-full flex-col overflow-y-scroll rounded-2xl bg-white p-10">
+          <div className="text-3xl font-semibold text-brand-purple-dark">
+            Timetable
+          </div>
+          <MonthView />
         </div>
-        <MonthView />
       </div>
     </PageLayout>
   );
