@@ -26,7 +26,15 @@ export default function Register() {
     <main className="grid h-screen grid-cols-2">
       <div className="center flex h-full items-center justify-start">
         <div className="flex flex-col gap-3 p-16">
-          <h1 className="text-brand-purple-light flex flex-row text-7xl font-semibold">
+          <Image
+            src={"/logo.png"}
+            alt={"logo"}
+            width={250} // Set a default width
+            height={150} // Set a default height to maintain aspect ratio
+            // className="h-auto w-1/2 md:w-1/3 lg:w-1/4" // Responsively adjust the width
+            // layout="responsive" // Ensure the image maintains aspect ratio
+          />
+          <h1 className="text-brand-purple-light -mt-16 flex flex-row text-7xl font-semibold">
             Schedula.
           </h1>
           <p className="pl-1 font-light">
