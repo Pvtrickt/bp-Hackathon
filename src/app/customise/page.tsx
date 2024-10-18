@@ -3,8 +3,13 @@ import { useState } from "react";
 import CustomiseCard from "../_components/customise-modal";
 import DailyPopUp from "../_components/DailyPopUp";
 import SideNavBar from "../_components/SideNavbar";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("../calendar");
+  };
   const [open, setOpen] = useState(true);
   return (
     <div className="flex h-full bg-gray-100">
@@ -48,8 +53,11 @@ export default function Home() {
             assignment3={"Assignment (10%) (Individual)"}
             assignment4={"Final Examination (50%) (Individual)"}
           />
-          <button className="mb-10 ml-9 mt-4 rounded-full bg-yellow-500 px-6 py-2 text-white hover:bg-yellow-600">
-            Select Subjects
+          <button
+            className="mb-10 ml-9 mt-4 w-56 rounded-full bg-yellow-500 px-6 py-2 text-white hover:bg-yellow-600"
+            onClick={handleClick}
+          >
+            Confirm Assessments
           </button>
           {open && <DailyPopUp onClose={() => setOpen(!open)} />}{" "}
         </main>
