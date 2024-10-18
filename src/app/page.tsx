@@ -23,10 +23,12 @@ export default function Home() {
 
           <main className="px-20 pt-9">
             <div className="mb-8 text-5xl">
-              <span className="pl-9 font-bold text-indigo-800">Welcome!</span>
+              <span className="text-brand-purple-dark font-bold">
+                Welcome, your personal AI scheduling assistant
+              </span>
             </div>
             <div className="flex flex-col px-10">
-              <h2 className="mb-3 text-xl font-bold text-indigo-800">
+              <h2 className="text-brand-purple-dark mb-3 text-xl font-bold">
                 Choose your subjects:
               </h2>
               <div className="flex items-center rounded-3xl bg-white px-4 pt-1 shadow-lg">
@@ -43,31 +45,63 @@ export default function Home() {
                   />
                 </form>
               </div>
-              <div className="flex w-20 gap-x-1 pt-5">
-                <select id="filter" className="rounded-xl">
-                  <option value="filter">Sort By</option>
-                </select>
-                <select id="filter" className="rounded-xl">
-                  <option value="filter">filter</option>
-                </select>
+              <div className="flex gap-x-4 pt-5">
+                <div className="border-brand-purple-dark text-brand-purple-dark flex items-center rounded-full border-2 px-4 py-2 font-semibold">
+                  <img
+                    src="mini clock.png"
+                    alt="clock"
+                    className="mr-2 h-5 w-5"
+                  />
+                  <select
+                    id="sortBy"
+                    className="cursor-pointer bg-transparent outline-none"
+                  >
+                    <option value="sort">Sort By</option>
+                  </select>
+                </div>
+
+                <div className="border-brand-purple-dark text-brand-purple-dark flex items-center rounded-full border-2 px-4 py-2 font-semibold">
+                  <select
+                    id="filter"
+                    className="cursor-pointer bg-transparent outline-none"
+                  >
+                    <option value="filter">Filter</option>
+                  </select>
+                </div>
               </div>
             </div>
 
             <div className="grid h-[500px] grid-cols-3 place-items-center justify-between gap-y-11 overflow-scroll px-5 pt-10 text-center text-white">
-              {/* gonna all of this to somewhere and integrate API */}
               <SubjectModal
                 courseCode="COMP1511"
                 courseName="Programming Fundamentals"
               />
               <SubjectModal courseCode="MATH1311" courseName="Maths 1A" />
               <SubjectModal courseCode="MATH1231" courseName="Maths 1B" />
-              <SubjectModal courseCode="MATH1231" courseName="pol" />
-              <SubjectModal courseCode="MATH1231" courseName="pol" />
-              <SubjectModal courseCode="MATH1231" courseName="pol" />
-              <SubjectModal courseCode="MATH1231" courseName="pol" />
-              <SubjectModal courseCode="MATH1231" courseName="pol" />
-              <SubjectModal courseCode="MATH1231" courseName="pol" />
-              <SubjectModal courseCode="MATH1231" courseName="pol" />
+              <SubjectModal
+                courseCode="COMP2521"
+                courseName="Data Structures and Algorithms"
+              />
+              <SubjectModal
+                courseCode="COMP3311"
+                courseName="Database Systems"
+              />
+              <SubjectModal
+                courseCode="COMP1521"
+                courseName="Computer System Fundamentals"
+              />
+              <SubjectModal
+                courseCode="COMP3231"
+                courseName="Operating Systems"
+              />
+              <SubjectModal
+                courseCode="COMP6080"
+                courseName="Web Front-end Programming"
+              />
+              <SubjectModal
+                courseCode="COMP3121"
+                courseName="Algorithm Design and Analysis"
+              />
             </div>
             <div>
               <button

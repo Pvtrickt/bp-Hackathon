@@ -1,19 +1,13 @@
 "use client";
-import { getServerAuthSession } from "~/server/auth";
-import { api } from "~/trpc/server";
 import CustomiseCard from "../_components/customise-modal";
 import SideNavBar from "../_components/SideNavbar";
-import SubjectModal from "../_components/SubjectModal";
 
-export default async function Home() {
+export default function Home() {
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-full bg-gray-100">
       <SideNavBar />
       <div className="flex flex-grow flex-col rounded-md">
-        <header
-          className="bg-brand-purple-light p-10 text-white"
-          style={{ boxShadow: "5px 4px 6px rgba(0, 0, 0, 0.3)" }}
-        >
+        <header className="bg-brand-purple-light p-10 text-white">
           <h1 className="text-xl"></h1>
         </header>
 
