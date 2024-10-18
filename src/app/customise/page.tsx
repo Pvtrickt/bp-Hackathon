@@ -1,11 +1,11 @@
 "use client";
-import { getServerAuthSession } from "~/server/auth";
-import { api } from "~/trpc/server";
+import { useState } from "react";
 import CustomiseCard from "../_components/customise-modal";
+import DailyPopUp from "../_components/DailyPopUp";
 import SideNavBar from "../_components/SideNavbar";
-import SubjectModal from "../_components/SubjectModal";
 
-export default async function Home() {
+export default function Home() {
+  const [open, setOpen] = useState(true);
   return (
     <div className="flex h-screen bg-gray-100">
       <SideNavBar />
@@ -21,7 +21,6 @@ export default async function Home() {
           <h1 className="text-brand-purple-dark text-3xl font-semibold">
             Let&apos;s customise your timetable
           </h1>
-
           <div className="text-brand-purple-dark flex flex-col justify-start">
             <h1 className="text-xl font-semibold">Subjects</h1>
             <p className="text-sm">
@@ -52,6 +51,7 @@ export default async function Home() {
             assignment3={"Assignment (10%) (Individual)"}
             assignment4={"Final Examination (50%) (Individual)"}
           />
+          {open && <DailyPopUp onClose={() => setOpen(!open)} />}{" "}
         </main>
       </div>
     </div>
