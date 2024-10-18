@@ -13,6 +13,7 @@ const SubjectModal = ({ courseCode, courseName }: SubjectModalProps) => {
       color === "bg-indigo-900" ? "bg-brand-purple-light" : "bg-indigo-900",
     );
   };
+
   return (
     <div
       className={`flex items-center justify-between p-6 shadow-lg ${color}`}
@@ -24,6 +25,8 @@ const SubjectModal = ({ courseCode, courseName }: SubjectModalProps) => {
         backgroundColor: color,
         borderRadius: "30px"
       }}
+      onMouseEnter={(e) => ((e.target as HTMLElement).style.cursor = "pointer")}
+      onMouseLeave={(e) => ((e.target as HTMLElement).style.cursor = "default")}
     >
       <div className="flex w-full flex-col gap-y-1 text-left">
         <h1 className="text-4xl pt-3">{courseCode}</h1>
