@@ -20,6 +20,7 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
 
   const toggleModal = () => {
     setIsPopUpModal(!isPopUpModal);
@@ -45,9 +46,36 @@ export default function Home() {
     setSearchTerm(event.target.value);
   };
 
+  //filters the courses based on the search input
   const filteredCourses = courses.filter((course) =>
     course.course_code.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const handleCourseSelection = (course: Course) => {
+    const isSelected = selectedCourses.some(
+      (selectedCourse) => selectedCourse.course_code === course.course_code,
+    );
+
+    if (isSelected) {
+      setSelectedCourses(
+        selectedCourses.filter(
+          (selectedCourse) => selectedCourse.course_code !== course.course_code,
+        ),
+      );
+    } else {
+      setSelectedCourses([...selectedCourses, course]); // i dont understand this, might have to ask chatgpt
+    }
+  };
+
+  const sortedCourses = [
+    ...selectedCourses,
+    ...filteredCourses.filter(
+      (course) =>
+        !selectedCourses.some(
+          (selectedCourse) => selectedCourse.course_code === course.course_code,
+        ),
+    ),
+  ];
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error fetching courses</div>;
@@ -120,6 +148,11 @@ export default function Home() {
                   key={course.course_code}
                   courseCode={course.course_code}
                   courseName={course.course_name}
+                  isSelected={selectedCourses.some(
+                    (selectedCourses) =>
+                      selectedCourses.course_code === course.course_code,
+                  )}
+                  onSelect={() => handleCourseSelection(course)}
                 />
               ))}
             </div>
