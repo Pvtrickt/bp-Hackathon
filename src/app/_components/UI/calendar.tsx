@@ -104,7 +104,7 @@ export default function MonthView() {
   }, [state]);
 
   return (
-    <div>
+    <div className="relative w-full">
       <div className="flex items-center">
         <motion.h2
           key={currentDate.getMonth()}
@@ -112,7 +112,7 @@ export default function MonthView() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="my-5 text-2xl font-semibold tracking-tighter text-gray-500"
+          className="my-5 text-xl font-semibold tracking-tighter text-gray-500"
         >
           {currentDate.toLocaleString("default", { month: "long" })}{" "}
           {currentDate.getFullYear()}
@@ -135,12 +135,12 @@ export default function MonthView() {
           initial="hidden"
           animate="visible"
           key={currentDate.getMonth()}
-          className="grid grid-cols-7 gap-1 sm:gap-2"
+          className="relative grid w-full grid-cols-7 sm:gap-2"
         >
           {daysOfWeek.map((day, idx) => (
             <div
               key={idx}
-              className="my-8 text-left text-4xl font-medium tracking-tighter"
+              className="w-full text-left text-xl font-medium uppercase tracking-tighter"
             >
               {day}
             </div>
@@ -151,18 +151,18 @@ export default function MonthView() {
 
             return (
               <motion.div
-                className="group flex h-[150px] flex-col rounded border-none hover:z-50"
+                className="group flex min-h-[150px] w-full flex-col rounded border-none hover:z-50"
                 key={dayObj.day}
                 variants={itemVariants}
               >
                 <Card
                   isPressable
-                  className="border-default-100 relative flex h-full border p-4 shadow-md"
+                  className="border-default-100 relative flex h-full flex-grow border p-4"
                   onClick={() => handleAddEvent(dayObj.day)}
                 >
                   <div
                     className={clsx(
-                      "mb-1 text-3xl font-semibold",
+                      "mb-1 text-xl font-light text-gray-500",
                       dayEvents.length > 0
                         ? "text-primary-600"
                         : "text-muted-foreground",
@@ -170,34 +170,36 @@ export default function MonthView() {
                   >
                     {dayObj.day}
                   </div>
-                  <div className="flex w-full flex-grow flex-col gap-2 overflow-hidden">
-                    {/* {dayEvents?.length > 0 && (
-                      <EventStyled minmized {...dayEvents[0]} />
-                    )} */}
-                    {dayEvents.length > 1 && (
-                      <Chip
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleShowMoreEvents(dayEvents);
-                        }}
-                        variant="flat"
-                        className="hover:bg-default-200 absolute right-2 top-2 text-xs transition duration-300"
-                      >
-                        {dayEvents.length > 1
-                          ? `+${dayEvents.length - 1}`
-                          : " "}
-                      </Chip>
-                    )}
+                  <div className="flex w-full flex-grow flex-col gap-1 overflow-hidden">
+                    {dayEvents.map((dayObj) => {
+                      const color = `bg-${dayObj.color}-200 text-${dayObj.color}-600`;
+                      return (
+                        <div
+                          className={`w-full truncate rounded px-2 text-xs ${
+                            dayObj.color === "sky"
+                              ? "bg-sky-200 text-sky-600"
+                              : dayObj.color === "amber"
+                                ? "bg-amber-200 text-amber-600"
+                                : dayObj.color === "lime"
+                                  ? "bg-lime-200 text-lime-600"
+                                  : "bg-gray-200 text-gray-600" // fallback color
+                          }`}
+                          key={dayObj.id}
+                        >
+                          {dayObj.title}
+                        </div>
+                      );
+                    })}
                   </div>
 
                   {/* Hover Text */}
-                  {dayEvents.length === 0 && (
+                  {/* {dayEvents.length === 0 && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <span className="text-lg font-semibold tracking-tighter text-white">
                         Add Event
                       </span>
                     </div>
-                  )}
+                  )} */}
                 </Card>
               </motion.div>
             );
