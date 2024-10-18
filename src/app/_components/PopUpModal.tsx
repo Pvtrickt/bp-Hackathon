@@ -6,8 +6,12 @@ interface PopUpModalProp {
 
 const PopUpModal = ({ onClose }: PopUpModalProp) => {
   const router = useRouter();
-  const handleClick = () => {
-    router.push("../customise");
+  const handleClick = (page: string) => {
+    if (page === "customise") {
+      router.push("../customise");
+    } else {
+      router.push("../calendar");
+    }
   };
 
   return (
@@ -64,14 +68,14 @@ const PopUpModal = ({ onClose }: PopUpModalProp) => {
         <div className="flex flex-row justify-between">
           <button
             className="hover:bg-yellow-600m mt-8 flex w-60 flex-row justify-center gap-4 rounded-full bg-yellow-500 px-6 py-2 text-white shadow-xl"
-            onClick={handleClick}
+            onClick={() => handleClick("customise")}
           >
             <img src="edit2.png" className="h-5 w-5" />
             <span>Edit assessments</span>
           </button>
           <button
             className="hover:bg-yellow-600m mt-8 flex w-60 flex-row justify-center gap-4 rounded-full bg-yellow-500 px-6 py-2 text-white shadow-xl"
-            onClick={handleClick}
+            onClick={() => handleClick("calendar")}
           >
             <img src="calendaricon.png" className="h-5 w-5" />
             <span>Get Schedule</span>
